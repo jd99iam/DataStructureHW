@@ -1,19 +1,26 @@
+#define _CRT_SECURE_MO_WARNINGS
 #include <stdio.h>
+#include <string.h>
 
-int func(int n)
-{
-	if (n <= 3)
-	{
-		return n - 1;
-	}
-	else
-	{
-		return func(n - 1) + func(n - 2) + func(n - 3);
-	}
-}
-
- 
 int main()
 {
-	printf("%d", func(10));
+	char text[100];
+	fgets(text, 100, stdin);
+	
+	int textLen = strlen(text);
+	char input;
+	for (int i = 0; i < textLen; i++)
+	{
+		printf("%c", text[i]);
+		input = getc(stdin);
+		rewind(stdin);
+		if (input != text[i])
+		{
+			printf("\a");
+		}
+	}
+
+
+
+	return 0;
 }
